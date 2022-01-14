@@ -1,14 +1,34 @@
 javascript: (() => {
 
+	var GDCURSOR;
+
 	start(1000);
 	async function start(delay)
 	{
+		document.addEventListener('mousemove', MoveCursor, event);
+
+		GDCURSOR = document.createElement('img');
+		GDCURSOR.style.width = '48px';
+		GDCURSOR.style.height = '48px';
+		GDCURSOR.style.position = "fixed";
+		GDCURSOR.src = 'https://www.clipartmax.com/png/small/132-1322583_overlay-pixel-glitch-tumblr-80s-90s-8bit-computer-aesth-windows-95.png';
+		document.body.appendChild(GDCURSOR);
+
 		var id = window.setInterval(gd, delay);
 	}
 
+	function MoveCursor(event)
+	{
+		var x = event.clientX;
+		var y = event.clientY;
+		console.log("MOUSE MOVED");
+		
+		GDCURSOR.style.left = x - 24 + 'px';
+		GDCURSOR.style.top = y - 24 + 'px';
+	}
+
 	async function gd() {
-		const allElements = document.querySelectorAll('*');
-		var images = document.images; 
+		const allElements = document.querySelectorAll('*'); 
 
 		for (let element of allElements) {
 			element.style.fontFamily = 'Comic Sans MS';
@@ -31,6 +51,10 @@ javascript: (() => {
 			else {
 				element.style.textShadow = '';
 			}
+
+			element.style.cursor = 'none';
+
+			await mdelay((1 / allElements.length) / 2)
 		}
 	}
 
