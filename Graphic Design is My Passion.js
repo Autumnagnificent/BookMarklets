@@ -1,4 +1,3 @@
-<a href="
 javascript: (() => {
 
 	var GDCURSOR;
@@ -12,60 +11,60 @@ javascript: (() => {
 		GDCURSOR = document.createElement('img');
 		GDCURSOR.style.width = '48px';
 		GDCURSOR.style.height = '48px';
-		GDCURSOR.style.position = 'absolute';
-GDCURSOR.src = 'https://www.clipartmax.com/png/small/132-1322583_overlay-pixel-glitch-tumblr-80s-90s-8bit-computer-aesth-windows-95.png';
-document.body.appendChild(GDCURSOR);
+		GDCURSOR.style.position = "absolute";
+		GDCURSOR.src = 'https://www.clipartmax.com/png/small/132-1322583_overlay-pixel-glitch-tumblr-80s-90s-8bit-computer-aesth-windows-95.png';
+		document.body.appendChild(GDCURSOR);
 
-var id = window.setInterval(gd, delay);
+		var id = window.setInterval(gd, delay);
 	}
 
-function MoveCursor(event) {
-	var x = event.clientX;
-	var y = event.clientY;
-	console.log('MOUSE MOVED');
+	function MoveCursor(event)
+	{
+		var x = event.clientX;
+		var y = event.clientY;
+		console.log("MOUSE MOVED");
+		
+		GDCURSOR.style.marginLeft = x - 24 + 'px';
+		GDCURSOR.style.marginTop = y - 24 + 'px';
+	}
 
-	GDCURSOR.style.marginLeft = x - 24 + 'px';
-	GDCURSOR.style.marginTop = y - 24 + 'px';
-}
+	async function gd() {
 
-async function gd() {
+		if (!DoIt) return;
+		DoIt = false;
 
-	if (!DoIt) return;
-	DoIt = false;
+		const allElements = document.querySelectorAll('*'); 
 
-	const allElements = document.querySelectorAll('*');
+		for (let element of allElements) {
+			element.style.fontFamily = 'Comic Sans MS';
+			element.style.fontStyle = Math.random() > .75 ? 'bold' : 'normal';
+			element.style.fontSize = '' + (Math.random() + 1.25) + 'vw';
 
-	for (let element of allElements) {
-		element.style.fontFamily = 'Comic Sans MS';
-		element.style.fontStyle = Math.random() > .75 ? 'bold' : 'normal';
-		element.style.fontSize = '' + (Math.random() + 1.25) + 'vw';
-
-		var h = Math.random() * 360;
-		element.style.color = 'hsl(' + h + ' , 100%, 50%)';
-		h = Math.random() * 360;
-		element.style.background = 'hsl(' + h + ' , 100%, 50%)';
-
-		var max = .35;
-		var r = (Math.random() * max * 2) - max;
-		element.style.transform = 'rotate(' + r + 'deg)';
-
-		if (Math.random() < .1) {
+			var h = Math.random() * 360;
+			element.style.color = 'hsl(' + h + ' , 100%, 50%)';
 			h = Math.random() * 360;
-			element.style.textShadow = '1px 4px hsl(' + h + ' , 100%, 50%)';
+			element.style.background = 'hsl(' + h + ' , 100%, 50%)';
+
+			var max = .35;
+			var r = (Math.random() * max * 2) - max;
+			element.style.transform = 'rotate(' + r + 'deg)';
+
+			if (Math.random() < .1) {
+				h = Math.random() * 360;
+				element.style.textShadow = '1px 4px hsl(' + h + ' , 100%, 50%)';   
+			}
+			else {
+				element.style.textShadow = '';
+			}
 		}
-		else {
-			element.style.textShadow = '';
-		}
+		await mdelay(1);
+
+		DoIt = true;
 	}
-	await mdelay(1);
 
-	DoIt = true;
-}
-
-function mdelay(n) {
-	return new Promise(function (resolve) {
-		setTimeout(resolve, n * 1000);
-	});
-}
-}) ();
-"> Graphic Design is my Passion! </a>
+	function mdelay(n) {
+		return new Promise(function (resolve) {
+			setTimeout(resolve, n * 1000);
+		});
+	}
+})();
