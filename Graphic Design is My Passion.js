@@ -11,7 +11,8 @@ javascript: (() => {
 		GDCURSOR = document.createElement('img');
 		GDCURSOR.style.width = '48px';
 		GDCURSOR.style.height = '48px';
-		GDCURSOR.style.position = "absolute";
+		GDCURSOR.style.position = 'fixed';
+		GDCURSOR.style.zIndex = '9999999999999999999';
 		GDCURSOR.src = 'https://www.clipartmax.com/png/small/132-1322583_overlay-pixel-glitch-tumblr-80s-90s-8bit-computer-aesth-windows-95.png';
 		document.body.appendChild(GDCURSOR);
 
