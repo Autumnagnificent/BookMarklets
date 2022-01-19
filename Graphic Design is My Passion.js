@@ -34,7 +34,7 @@ javascript: (() => {
 		if (!DoIt) return;
 		DoIt = false;
 
-		const allElements = document.querySelectorAll('*'); 
+		const allElements = document.getElementsByTagName("*");
 
 		for (let element of allElements) {
 			element.style.fontFamily = 'Comic Sans MS';

@@ -7,11 +7,16 @@ javascript: (() => {
 
     function Exec() {
         
-        const allElements = document.querySelectorAll('*');
+        const allElements = document.getElementsByTagName("*");
 
         for (let element of allElements) {
             element.style.color = 'hsl(0, 0%, 85%)';
             element.style.background = 'hsl(0, 0%, 5%)';
+
+            element.style.borderColor = 'hsl(0, 0%, 8%)';
+            element.style.borderRadius = '8px';
+            element.style.borderWidth = '1px';
+            element.style.borderStyle = 'solid';
 
             element.style.userSelect = 'text';
         }
